@@ -110,9 +110,10 @@ Then add "invisble" anchor tags in `routes/+layout.svelte` to generate all pages
 <script>
 	import { page } from '$app/state';
 +	import { locales, localizeHref } from '$lib/paraglide/runtime';
+	let { children } = $props();
 </script>
 
-<slot></slot>
+{@render children()}
 
 +<div style="display:none">
 +	{#each locales as locale}
